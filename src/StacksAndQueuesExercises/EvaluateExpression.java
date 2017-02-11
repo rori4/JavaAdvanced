@@ -1,16 +1,14 @@
 package StacksAndQueuesExercises;
 
-import java.util.ArrayDeque;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
-public class InfixToPostfix {
+public class EvaluateExpression {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String[] input = scan.nextLine().split(" ");
         ArrayDeque<String> operators = new ArrayDeque<>();
         ArrayDeque<String> expression = new ArrayDeque<>();
+        ArrayDeque<Double> result = new ArrayDeque<>();
         Map<String, Integer> priorites = new HashMap<>();
         priorites.put("*", 3);
         priorites.put("/", 3);
@@ -19,7 +17,6 @@ public class InfixToPostfix {
         priorites.put("(", 1);
 
         for (String anInput : input) {
-
             if (isNumeric(anInput)) {
                 expression.addLast(anInput);
             } else {
@@ -51,13 +48,44 @@ public class InfixToPostfix {
             expression.addLast(operators.pop());
         }
 
-        while (expression.size() > 0) {
-            System.out.print(expression.pop() + " ");
+        while (!expression.isEmpty()) {
+            if (isNumeric(expression.peek())) {
+                result.push(Double.valueOf(expression.pop()));
+            } else if (isOperator(expression.peek())){
+                String operator = expression.pop();
+                double second = result.pop();
+                double first= result.pop();
+
+                double resultNumber = 0;
+                switch (operator) {
+                    case "*":
+                        resultNumber = first*second;
+                        result.push(resultNumber);
+                        break;
+                    case "/":
+                        resultNumber = first/second;
+                        result.push(resultNumber);
+                        break;
+                    case "+":
+                        resultNumber = first+second;
+                        result.push(resultNumber);
+                        break;
+                    case "-":
+                        resultNumber = first-second;
+                        result.push(resultNumber);
+                        break;
+                }
+            }
         }
+
+        System.out.printf("%.2f", result.getFirst());
     }
 
     private static boolean isNumeric(String anInput) {
         return anInput.matches("([a-zA-Z]+|\\d+)");
     }
-}
 
+    private static boolean isOperator(String s) {
+        return s.matches("[+\\-*\\/]");
+    }
+}
