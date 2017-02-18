@@ -1,0 +1,14 @@
+try and catch - http://beginnersbook.com/2013/04/try-catch-in-java/
+
+KISS Principle - https://people.apache.org/~fhanik/kiss.html
+https://en.wikipedia.org/wiki/KISS_principle
+
+SOLID principle - https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+
+long startTime = System.nanoTime();
+long endTime  = System.nanoTime();
+then print to test how fast they are (optimisation trick)
+
+make a string generator and integer generator
+
+java format double - search in StackOverflow

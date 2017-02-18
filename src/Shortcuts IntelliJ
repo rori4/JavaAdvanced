@@ -1,0 +1,15 @@
+Shift + Del -> delete a line
+Shift+ F6 -> Refactor/Rename
+
+Ctrl + ` -> change theme (overridden by Ditto!)
+Ctrl + L -> search
+Ctrl + D -> duplicate line
+Ctrl + Q -> Shows info about the function !
+
+Ctrl + Shift + k -> commit and push
+Ctrl + Shift + a -> find in options
+
+Ctrl + Alt + L -> Auto formats the code!
+Ctrl + Alt + M -> Extract method
+
+Alt + Enter -> add/import libraries

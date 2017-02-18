@@ -1,0 +1,60 @@
+Pattern pattern = Pattern.compile("a");
+Matcher matcher = pattern.matcher("aaaab");
+
+while (matcher.find()) {
+  System.out.println(matcher.group());
+}
+-----------------------------------------------------
+[aeiouy] – matches a lowercase vowel
+[0123456789] - Мatches any digit frm 0 to 9
+[0-9] - Character range. Same as above.
+[a-z] – Characters can also be used in a range
+. - Мatches any symbol
+[^aeiouy] – matches anything except a lowercase vowel
+[^0123456789] - Мatches anyting except a digit frm 0 to 9
+[^0-9] - Negating  a character range
+
+---- SHORTHAND ----
+\d – Shorthand for [0-9]
+\w – Shorthand for [a-zA-Z0-9_]
+\s – Matches any white-space character (space, tab, line break)
+\D – Shorthand for [^0-9]
+\W – Shorthand for [^a-zA-Z0-9_]
+\S – Matches any non white-space character
+
+---- QUANTIFIERS ----
+Quantifiers are greedy by default => Make a quantifier lazy with ?
+
++ - Matches the previous element one or more times
+* - Matches the previous element zero or more times
+? - Matches the previous element zero or one time
+{min length, max length} - Exact quantifiers
+
+---- SPECIAL CHARACTERS ----
+    \ => Escape special characters with backslash
+
+. - Dot matches any character
+| - Pipe is a logical OR
++*? - Quantifiers
+^$ - Anchors (Beginning|End)
+\/ - Slashes
+^ - The match must start at the beginning of the string or line
+$ - The match must occur at the end of the string or before \n
+
+---- Grouping Constructs ----
+(subexpression) - Captures a numbered group
+(?<name>subexpression) - Captures a named group
+(?:subexpression) – Defines a non-capturing group
+
+---- Helpful Resources ----
+https://regex101.com and http://regexr.com – websites to test Regex using different programming languages
+http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher – a quick reference for Regex from Oracle
+http://regexone.com – interactive tutorials for Regex
+http://www.regular-expressions.info/tutorial.html – a comprehensive tutorial on regular expressions
+
+---- Look Behind And Look Ahead ----
+(?<=\.) - matches a point behind
+(?=[A-Z]) - matches A-Z ahead
+
+(?<!\.) - Negative look behind for point
+

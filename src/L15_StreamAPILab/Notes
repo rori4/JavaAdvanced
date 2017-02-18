@@ -1,0 +1,12 @@
+numbers.stream()
+  .filter(n -> 10 <= n && n <= 20)
+  .distinct()
+  .limit(2)
+  .forEach(n -> print(n));
+
+
+HashMap<String, String> map = new HashMap<>();
+
+Stream<Map.Entry<String, String>> entries =	 map.entrySet().stream();
+Stream<String> keys = map.keySet().stream();
+Stream<String> keys = map.values().stream();
